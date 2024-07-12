@@ -1,24 +1,26 @@
-<h1>Users Admin</h1>
-<div class="container row">
-    <div   class="col-md-6">
-    <table class="table">
-      <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th></th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr  >
-        <td>{{users.id}}</td>
-        <td>{{users.name}}</td>
-        <td><button type="button" class="btn btn-primary">Show Details</button></td>
-      </tr>
-      </tbody>
-    </table>
+
+
+
+
+<!-- Topic List Page -->
+
+<div class="topic-list-container">
+  <h1>Explore Our Topics</h1>
+  <p>Learn from our vast collection of topics, curated just for you!</p>
+
+  <div class="topic-grid">
+    <div class="topic-card" *ngFor="let topic of topics">
+      <img src="https://via.placeholder.com/150" alt="Topic Image">
+      <h2>{{ topic.name }}</h2>
+  
+      <button class="btn btn-primary" routerLink="/topics/{{ topic.id }}">Learn More</button>
+    </div>
   </div>
+</div>
+ <!-- <ul>
+    <li *ngFor="let topic of topics">{{ topic.name }}</li>
+  </ul>
   <div   class="col-md-6">
     Display User Details and Add user here.
   </div>
-</div>
+</div>-->

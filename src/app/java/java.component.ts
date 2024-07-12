@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Java} from   '../model/Java.model';
-import { HttpClientService } from '.././service/http-client.service'
+import {Topic} from   '../model/Topic.model';
+import {HttpClientService } from '../service/http-client.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,22 +10,23 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./java.component.css']
 })
 export class JavaComponent implements OnInit {
-  //users: Array<Java>;
-  users: Java;
-  id:number;
-  constructor(private httpClientService: HttpClientService,private _Router: ActivatedRoute) { }
+  id:any;
+  topics: Topic;
+
+  constructor(private route: ActivatedRoute,private tutorialService: HttpClientService) { }
 
   ngOnInit(): void {
-    
-    this.id=this._Router.snapshot.params.id;
-    console.log(this.id);
-    this.httpClientService.getUsers(this.id).subscribe(
-    //  response => this.handleSuccessfulResponse(response),
-    response => this.handleSuccessfulResponse(response),
-    );
+    this.id= this.route.snapshot.paramMap.get('id');
+    this.fetchTopics( this.id);
+  }
+  fetchTopics(id:any): void {
+    // Call the API to fetch topics for the selected course
+    // Replace with your API call
+    this.tutorialService.fetchTopics1(id)
+      .subscribe(response => {
+        this.topics = response;
+      });
+  }
+ 
+  }
 
-  }
-  handleSuccessfulResponse(response) {
-    this.users = response;
-  }
-}

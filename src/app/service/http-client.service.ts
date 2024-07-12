@@ -8,14 +8,24 @@ import { Router, ActivatedRoute } from '@angular/router';
   providedIn: 'root'
 })
 export class HttpClientService {
-id :number;
+  id:any;
+
   constructor(private httpClient:HttpClient) { }
   
 
- getUsers(Id)
+ getUsers()
 {
   
-  return this.httpClient.get<Java[]>('http://localhost:8080/Java/get/?id='+Id);
+  return this.httpClient.get<any>('http://localhost:9090/api/tutorials');
 }
+
+fetchTopics1(id:any){
+  // Call the API to fetch topics for the selected course
+  // Replace with your API call
+ return  this. httpClient.get<any>(`http://localhost:9090/api/tutorials/${id}`);
+    
+    
+}
+
 
 }
