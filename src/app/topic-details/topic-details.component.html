@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="topic-card"   *ngFor="let topic of topics1">
+          <h2 class="topic-name">Topic Name: <span>{{topic?.title}}</span></h2>
+          <div class="topic-content">
+            <p>{{topic?.description}}</p>
+            <!--<p>Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>-->
+          </div>
+          <div class="topic-actions">
+            <button class="btn btn-primary">Learn More</button>
+            <button class="btn btn-secondary">Take Quiz</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import {HttpClientService } from '../service/http-client.service';
 import { Java } from '../model/Java.model';
 
@@ -13,6 +13,7 @@ export class MenuComponent implements OnInit {
   tutorials: Java;
 
   constructor(private tutorialService: HttpClientService) { }
+  
 
   ngOnInit(): void {
     this.tutorialService.getUsers().subscribe(response => {
@@ -23,4 +24,5 @@ export class MenuComponent implements OnInit {
    // console.log(this.tutorials);
   }
 
+ 
 }

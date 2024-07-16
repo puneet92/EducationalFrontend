@@ -28,4 +28,8 @@ fetchTopics1(id:any){
 }
 
 
+fetchTopicDetails(id:any){
+
+return  this. httpClient.get<any>(`http://localhost:9090/api/tutorials/topics/${id}`);
+}
 }
