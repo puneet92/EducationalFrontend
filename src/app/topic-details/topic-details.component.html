@@ -1,17 +1,44 @@
-<div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="topic-card"   *ngFor="let topic of topics1">
-          <h2 class="topic-name">Topic Name: <span>{{topic?.title}}</span></h2>
-          <div class="topic-content">
-            <p>{{topic?.description}}</p>
-            <!--<p>Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>-->
-          </div>
-          <div class="topic-actions">
-            <button class="btn btn-primary">Learn More</button>
-            <button class="btn btn-secondary">Take Quiz</button>
-          </div>
-        </div>
+
+
+  <!DOCTYPE html>
+<html>
+<head>
+  <title>HTML Tutorial</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    .sidebar {
+      width: 200px;
+      float: left;
+      margin-right: 20px;
+    }
+    .content {
+      width: 600px;
+      float: left;
+    }
+    .button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h1>HTML Tutorial</h1>
+    <ul *ngFor="let topic of topics1">
+      <li><a href="#">{{topic?.title}}</a></li>
+      </ul>
       </div>
-    </div>
-  </div>
+      </body>
+</html>
+
+    
