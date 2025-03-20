@@ -16,16 +16,24 @@ export class JavaComponent implements OnInit {
   constructor(private route: ActivatedRoute,private tutorialService: HttpClientService) { }
 
   ngOnInit(): void {
-    this.id= this.route.snapshot.paramMap.get('id');
-    this.fetchTopics( this.id);
+   // this.id= this.route.snapshot.paramMap.get('id');
+   // this.fetchTopics( this.id);
+   this.route.paramMap.subscribe(params => {
+    this.id = params.get('id');
+    this.fetchTopics(this.id);
+  });
   }
   fetchTopics(id:any): void {
     // Call the API to fetch topics for the selected course
     // Replace with your API call
-    this.tutorialService.fetchTopics1(id)
-      .subscribe(response => {
-        this.topics = response;
-      });
+   // this.tutorialService.fetchTopics1(id)
+    //  .subscribe(response => {
+   //     this.topics = response;
+   //   });
+   this.tutorialService.fetchTopics1(id)
+   .subscribe(response => {
+     this.topics = response;
+   });
   }
   
 

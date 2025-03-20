@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { JavaComponent } from './java/java.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TopicDetailsComponent } from './topic-details/topic-details.component';
+import { SubtopicsComponent } from './subtopics/subtopics.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TopicDetailsComponent } from './topic-details/topic-details.component';
     HomeComponent,
     FooterComponent,
     JavaComponent,
-    TopicDetailsComponent
+    TopicDetailsComponent,
+    SubtopicsComponent
   ],
   imports: [
     BrowserModule,
