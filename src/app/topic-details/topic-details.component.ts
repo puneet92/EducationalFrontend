@@ -11,6 +11,7 @@ import {HttpClientService } from '../service/http-client.service';
 export class TopicDetailsComponent implements OnInit {
   id:any;
   topics1:any;
+  selectedSubtopic:any;
 
   constructor(private route: ActivatedRoute,private tutorialService: HttpClientService) { }
 
@@ -20,11 +21,18 @@ export class TopicDetailsComponent implements OnInit {
     this.fetchTopicDetails( this.id);
   }
   fetchTopicDetails(id:any): void {
-    // Call the API to fetch topics for the selected course
-    // Replace with your API call
-    this.tutorialService.fetchTopicDetails(id)
+    // Call the API to fetch subtopics for the selected topic
+    this.tutorialService.fetchSubTopicsByTopicId(id)
       .subscribe(response => {
-        this.topics1 = response;
+        this.topics1 = { subtopics: response };
+        // Auto-select first subtopic if available
+        if (this.topics1?.subtopics && this.topics1.subtopics.length > 0) {
+          this.selectedSubtopic = this.topics1.subtopics[0];
+        }
       });
-}
+  }
+
+  selectSubtopic(subtopic: any): void {
+    this.selectedSubtopic = subtopic;
+  }
 }

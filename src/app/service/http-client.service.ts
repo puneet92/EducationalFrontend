@@ -32,4 +32,8 @@ fetchTopicDetails(id:any){
 
 return  this. httpClient.get<any>(`http://localhost:9090/api/tutorials/topics/${id}`);
 }
+
+fetchSubTopicsByTopicId(topicId:any){
+  return this.httpClient.get<any>(`http://localhost:9090/api/subtopics/${topicId}`);
+}
 }

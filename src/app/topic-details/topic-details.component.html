@@ -1,87 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HTML Tutorial</title>
-  <style>
-    * {
-      box-sizing: border-box; /* Ensure padding and borders are included in width calculations */
-    }
+<div class="topic-details-container">
+  <!-- Side Menu for Subtopics -->
+  <div class="sidebar">
+    <h3 class="sidebar-title">Subtopics</h3>
+    <ul class="subtopic-list">
+      <li
+        *ngFor="let subtopic of topics1?.subtopics; let i = index"
+        class="subtopic-item"
+        [class.active]="selectedSubtopic === subtopic"
+        (click)="selectSubtopic(subtopic)">
+        <span class="subtopic-number">{{i + 1}}.</span>
+        <span class="subtopic-name">{{subtopic.title || subtopic.name}}</span>
+      </li>
+    </ul>
+  </div>
 
-    body, html {
-      margin: 0; /* Remove default margin */
-      padding: 0; /* Remove default padding */
-      width: 100%; /* Ensure body and html take full width */
-      height: 100%; /* Ensure body and html take full height */
-    }
-
-    .container {
-      display: flex; /* Use Flexbox for layout */
-      height: 100vh; /* Full height of the viewport */
-    }
-
-    .sidebar {
-      width: 200px; /* Fixed width for the sidebar */
-      background-color: #f4f4f4; /* Background color for the sidebar */
-      padding: 20px; /* Padding for the sidebar */
-      overflow-y: auto; /* Allow scrolling if sidebar content overflows */
-      position: relative; /* Ensure it stays in place */
-    }
-
-    .content {
-      flex: 1; /* Take up the remaining space */
-      padding: 20px; /* Padding for the content */
-      background-color: #fff; /* Background color for content */
-      overflow-y: auto; /* Allow scrolling if content overflows */
-    }
-
-    h1 {
-      color: #333;
-      text-align: center; /* Center the h1 text */
-    }
-
-    h2 {
-      color: #333;
-    }
-
-    p {
-      line-height: 1.6; /* Improve readability */
-      font-size: 18px; /* Increase font size for the description */
-    }
-
-    /* Optional: Style for sidebar links */
-    .sidebar a {
-      display: block; /* Make links block elements */
-      padding: 10px; /* Padding for links */
-      color: #333; /* Text color for links */
-      text-decoration: none; /* Remove underline from links */
-      margin-bottom: 10px; /* Space between links */
-      border-radius: 4px; /* Rounded corners */
-    }
-
-    .sidebar a:hover {
-      background-color: #ddd; /* Change background on hover */
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="sidebar">
-      <h2>Menu</h2>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Contact</a>
-      <a href="#">Help</a>
-    </div>
-    <div class="content">
-      <!-- Assuming topics1 is an array of objects with a description property -->
-      <div *ngFor="let topic of topics1">
-        <h1>{{ topic?.title }}</h1>
-        <p>{{ topic?.description }}</p>
+  <!-- Main Content Area -->
+  <div class="content-area">
+    <div *ngIf="selectedSubtopic" class="subtopic-details">
+      <h2 class="subtopic-heading">{{selectedSubtopic.title || selectedSubtopic.name}}</h2>
+      <div class="subtopic-description">
+        <p>{{selectedSubtopic.content || selectedSubtopic.description}}</p>
       </div>
     </div>
+
+    <div *ngIf="!selectedSubtopic" class="no-selection">
+      <h3>Select a subtopic from the menu to view details</h3>
+    </div>
   </div>
-</body>
-</html>
+</div>

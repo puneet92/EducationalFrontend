@@ -1,15 +1,156 @@
-@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
-.social{
-    text-align:center;
-    width:120px;
-    height:120px;
-    float:left;
-    background:rgb(255,255,255);
-    border:1px solid rgb(204,204,204);
-    box-shadow:0 2px 4px rgba(0,0,0,0.15), inset 0 0 50px rgba(0,0,0,0.1);
-    border-radius:100px;
-    margin:0 10px 10px 0;
-    padding:19px;
+/* Navbar Styles */
+.navbar {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+  box-shadow: var(--shadow-lg);
+  padding: 15px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: var(--transition);
 }
-.google-pluse:hover{background:#DD4B39;color:#FFF;}
-.facebook:hover{background:#3b5998;color:#FFF;}
+
+.navbar-brand {
+  font-size: 28px;
+  font-weight: 800;
+  color: white !important;
+  letter-spacing: 1px;
+  transition: var(--transition);
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Navbar Links */
+.navbar-nav > li > a {
+  color: white !important;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 20px !important;
+  transition: var(--transition);
+  border-radius: var(--radius-sm);
+  margin: 0 5px;
+}
+
+.navbar-nav > li > a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.navbar-nav > li.active > a {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  font-weight: 600;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  background: white;
+  border: none;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xl);
+  margin-top: 10px;
+  padding: 10px 0;
+  min-width: 200px;
+}
+
+.dropdown-menu > li > a {
+  color: var(--text-primary) !important;
+  padding: 12px 20px !important;
+  font-weight: 500;
+  transition: var(--transition);
+  border-left: 3px solid transparent;
+}
+
+.dropdown-menu > li > a:hover {
+  background: linear-gradient(90deg, var(--background), white) !important;
+  color: var(--primary-color) !important;
+  border-left-color: var(--primary-color);
+  padding-left: 25px !important;
+}
+
+/* Dropdown Caret */
+.caret {
+  margin-left: 5px;
+  transition: var(--transition);
+}
+
+.dropdown.open .caret {
+  transform: rotate(180deg);
+}
+
+/* Toggle Button for Mobile */
+.navbar-toggle {
+  border: 2px solid white;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.navbar-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.navbar-toggle .icon-bar {
+  background-color: white;
+  border-radius: 2px;
+}
+
+/* Social Icons */
+.social {
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  float: left;
+  background: white;
+  border: none;
+  box-shadow: var(--shadow-md);
+  border-radius: 50%;
+  margin: 0 10px 10px 0;
+  padding: 12px;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social i {
+  font-size: 24px;
+  transition: var(--transition);
+}
+
+.google-plus {
+  color: #DD4B39;
+}
+
+.google-plus:hover {
+  background: #DD4B39;
+  color: white;
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: var(--shadow-lg);
+}
+
+.facebook {
+  color: #3b5998;
+}
+
+.facebook:hover {
+  background: #3b5998;
+  color: white;
+  transform: scale(1.1) rotate(-5deg);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .navbar-collapse {
+    background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
+    border-radius: var(--radius-md);
+    margin-top: 10px;
+    padding: 15px;
+  }
+
+  .navbar-nav > li > a {
+    margin: 5px 0;
+  }
+}
